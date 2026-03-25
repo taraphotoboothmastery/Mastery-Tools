@@ -43,7 +43,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  padding: 0 1.2rem;
+  padding: 0 1rem;
   background: var(--paper);
 }
 #tmf-msgs {
@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.2rem 0.5rem 1rem;
+  padding: 1.2rem 0 1rem;
 }
 #tmf-msgs::-webkit-scrollbar { width: 4px; }
 #tmf-msgs::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
@@ -70,7 +70,7 @@
 .tmf-av-bot img { width: 100%; height: 100%; object-fit: contain; }
 .tmf-av-user { background: var(--cream); color: var(--ink); border: 1px solid var(--rule); }
 .tmf-bubble {
-  max-width: 82%; padding: 14px 16px !important; border-radius: 18px;
+  max-width: 82%; padding: 1rem 1.2rem; border-radius: 18px;
   font-size: 0.92rem; line-height: 1.6; color: var(--ink);
   font-family: 'Raleway', sans-serif;
 }
@@ -152,7 +152,7 @@
 
 Your target audience: photo booth business owners who have surpassed the startup phase, typically making around $30K annually, often couples or solo entrepreneurs. They want financial freedom, more consistent bookings, premium clients, and work-life balance. They feel stuck, overworked, and undervalued, and they crave proven strategies, automation, clarity, and mentorship to scale sustainably.
 
-How you work: Ask one question at a time in a natural, conversational style. Start with a warm introduction and ask: "Let's start simple. What's your name, and what's the name of your business?" Encourage them to give detail by reminding them that the more detail they share, the sharper the report will be. Never assume details. If the user says "skip," move on. When all questions are answered, generate a Target Market Report with insights on corporate and wedding markets plus tailored marketing recommendations.
+How you work: Ask one question at a time in a natural, conversational style. Start with a warm introduction and ask for their first name only. Once they give their name, then ask for the name of their business as a separate follow-up question. Encourage them to give detail by reminding them that the more detail they share, the sharper the report will be. Never assume details. If the user says "skip," move on. When all questions are answered, generate a Target Market Report with insights on corporate and wedding markets plus tailored marketing recommendations.
 
 Progress saving: At any point, let members know they can stop and return later. If they say they want to pause or save, provide a short summary of what's been collected so far and clearly mark that they can resume from the next unanswered question whenever they're ready. Do not pressure them to continue in one sitting.
 
@@ -245,7 +245,7 @@ Guardrails:
 
 Here is how this works: I will ask you one question at a time. The more detail you share, the sharper your Target Market Report will be. You can pause anytime by saying "save progress."
 
-Ready? Let's start simple. What's your name, and what's the name of your business?
+Ready? Let's start simple. What's your name?
 `};
   var messages = [OPENING], loading = false, userName = '';
 
@@ -268,7 +268,7 @@ Ready? Let's start simple. What's your name, and what's the name of your busines
       var nm=line.match(/^(\d+)\.\s/);
       if(nm) return '<div style="display:flex;gap:.5rem;margin-bottom:.2rem"><span style="color:var(--accent);flex-shrink:0;min-width:1.2rem">'+nm[1]+'.</span><span>'+parseBold(line.replace(/^\d+\.\s/,''))+'</span></div>';
       if(!line.trim()) return '<div style="height:.5rem"></div>';
-      return '<p style="margin:0 0 .2rem 0 !important;line-height:1.65;padding:0 !important">'+parseBold(line)+'</p>';
+      return '<p style="margin:0 0 .2rem 0;line-height:1.65">'+parseBold(line)+'</p>';
     }).join('');
   }
 
