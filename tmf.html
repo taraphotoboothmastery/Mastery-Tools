@@ -70,7 +70,7 @@
 .tmf-av-bot img { width: 100%; height: 100%; object-fit: contain; }
 .tmf-av-user { background: var(--cream); color: var(--ink); border: 1px solid var(--rule); }
 .tmf-bubble {
-  max-width: 82%; padding: 1rem 1.4rem; border-radius: 18px;
+  max-width: 82%; padding: 14px 16px !important; border-radius: 18px;
   font-size: 0.92rem; line-height: 1.6; color: var(--ink);
   font-family: 'Raleway', sans-serif;
 }
@@ -268,7 +268,7 @@ Ready? Let's start simple. What's your name, and what's the name of your busines
       var nm=line.match(/^(\d+)\.\s/);
       if(nm) return '<div style="display:flex;gap:.5rem;margin-bottom:.2rem"><span style="color:var(--accent);flex-shrink:0;min-width:1.2rem">'+nm[1]+'.</span><span>'+parseBold(line.replace(/^\d+\.\s/,''))+'</span></div>';
       if(!line.trim()) return '<div style="height:.5rem"></div>';
-      return '<p style="margin:0 0 .2rem 0;line-height:1.65">'+parseBold(line)+'</p>';
+      return '<p style="margin:0 0 .2rem 0 !important;line-height:1.65;padding:0 !important">'+parseBold(line)+'</p>';
     }).join('');
   }
 
